@@ -16,15 +16,15 @@ function getRedirectList() {
 ///test/test/test/products/prodotto
 
 const rewritesList = getRedirectList();
-
-module.exports = {
+// @ts-check
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   optimizeFonts: false,
   reactStrictMode: true,
   async rewrites() {
-    return {fallback: rewritesList};
+    return {beforeFiles: rewritesList,afterFiles: rewritesList,fallback: rewritesList};
   },
-  //async redirects() {
-  //  return rewritesList;
-  // },
-  generateBuildId: () => 'build',
-};
+}
+ 
+module.exports = nextConfig
