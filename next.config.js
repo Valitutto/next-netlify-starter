@@ -3,10 +3,12 @@ function getRedirectList() {
       {
         source: `/test/test/test/categoria/:category*`,
         destination: `/test/test/test/categories/:category*`,
+        //permanent: false,
       },
       {
         source: `/test/test/test/prodotti/:product`,
         destination: `/test/test/test/products/:product`,
+        //permanent: false,
       },
     ];
 }
@@ -19,10 +21,10 @@ module.exports = {
   optimizeFonts: false,
   reactStrictMode: true,
   async rewrites() {
-    return rewritesList;
+    return {fallback: rewritesList};
   },
-  // async redirects() {
-  //   return [...rewritesList];
+  //async redirects() {
+  //  return rewritesList;
   // },
   generateBuildId: () => 'build',
 };
