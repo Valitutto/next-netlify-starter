@@ -19,7 +19,7 @@ module.exports = {
   optimizeFonts: false,
   reactStrictMode: true,
   async rewrites() {
-    return {fallback: [...rewritesList]};
+    return rewritesList;
   },
   // async redirects() {
   //   return [...rewritesList];
